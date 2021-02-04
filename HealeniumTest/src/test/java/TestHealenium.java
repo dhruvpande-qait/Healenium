@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,9 @@ public class TestHealenium {
     @Test
     public void setDriver(){
         WebDriverManager.chromedriver().setup();
-        WebDriver delegate = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        WebDriver delegate = new ChromeDriver(options);
         Config healeniumConfig = ConfigFactory.load("healenium.properties");
         SelfHealingDriver driver = SelfHealingDriver.create(delegate,healeniumConfig);
         driver.get("file:///home/qainfotech/Desktop/Html-css-day1-master/Day-2-%20using%20Bootstrap/login.html");
