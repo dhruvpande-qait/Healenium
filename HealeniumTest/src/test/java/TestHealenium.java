@@ -16,9 +16,9 @@ public class TestHealenium {
     @Test
     public void setDriver(){
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        WebDriver delegate = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");
+        WebDriver delegate = new ChromeDriver();
         Config healeniumConfig = ConfigFactory.load("healenium.properties");
         SelfHealingDriver driver = SelfHealingDriver.create(delegate,healeniumConfig);
         driver.get("file:///home/qainfotech/Desktop/Html-css-day1-master/Day-2-%20using%20Bootstrap/login.html");
